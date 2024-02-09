@@ -1,0 +1,33 @@
+{
+    "name": "my-cli",
+    "version": "1.0.0",
+    "description": "Custom CLI for my project",
+    "author": "Your Name",
+    "commands": [
+      {
+        "name": "command1",
+        "description": "Description of command1",
+        "usage": "my_cli command1 [options]",
+        "options": [
+          {
+            "name": "option1",
+            "description": "Description of option1",
+            "abbr": "o"
+          }
+        ]
+      },
+      {
+        "name": "command2",
+        "description": "Description of command2",
+        "usage": "my_cli command2 [options]",
+        "options": [
+          {
+            "name": "option2",
+            "description": "Description of option2",
+            "abbr": "p"
+          }
+        ]
+      }
+    ]
+  }
+  
