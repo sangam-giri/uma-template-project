@@ -1,7 +1,7 @@
-import 'app.service.dart' as ONE;
+import 'app.service.dart' as One;
 import 'package:dio/dio.dart' as dio;
 
 void main() {
   dio.Headers();
-  ONE.test();
+  One.test();
 }

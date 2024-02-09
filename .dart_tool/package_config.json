@@ -287,10 +287,10 @@
       "name": "my_project",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-09T03:11:22.765815Z",
+  "generated": "2024-02-09T03:39:32.232069Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }
