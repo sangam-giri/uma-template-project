@@ -1,21 +1,14 @@
-import 'package:dart_modules/common/get.dart';
-import 'package:dart_modules/common/post.dart';
 import 'package:dart_modules/common/controller.dart';
+import 'package:dart_modules/common/routes.dart';
 import 'app.service.dart';
 
 @Controller()
 class AppController {
-  AppService appService;
-  AppController(this.appService);
+  AppService appService = AppService();
 
   @Get()
   String getMethod() {
     return appService.getMethod();
-  }
-
-  @Get(path: '/my-get')
-  String getMethodWithRoute() {
-    return appService.getMethodWithRoute();
   }
 
   @Post()
@@ -23,8 +16,18 @@ class AppController {
     return appService.postMethod();
   }
 
-  @Post(path: '/my-post')
-  String postMethodWithRoute() {
-    return appService.postMethodWithRoute();
+  @Put()
+  String putMethod() {
+    return 'PuT Working';
+  }
+
+  @Patch()
+  String patchMethod() {
+    return 'Patch Working';
+  }
+
+  @Delete()
+  String deleteMethod() {
+    return 'Delete Working';
   }
 }

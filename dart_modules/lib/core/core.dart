@@ -1,36 +1,30 @@
-import 'dart:mirrors';
-import 'package:dart_modules/common/get.dart';
-import 'package:dart_modules/common/post.dart';
+import 'dart:io';
+import 'package:dart_modules/core/request_handler.dart';
+
+HttpServer? server;
 
 class DartFactory {
-  DartFactory._();
+  final Object module;
+
+  DartFactory(this.module);
 
   ///create
-  static DartFactory create(Type module) {
-    ClassMirror moduleClass = reflectClass(module);
-    moduleClass.declarations.forEach((symbol, declaration) {
-      if (declaration is MethodMirror) {
-        List<InstanceMirror> metaData = declaration.metadata;
-        String methodName = MirrorSystem.getName(symbol);
-        metaData.forEach((meta) {
-          var decoratorType = meta.reflectee;
-          if (decoratorType is Get) {
-            Get.handleGetRequest(
-                decoratorType: decoratorType,
-                methodName: methodName,
-                path: decoratorType.path);
-          } else if (decoratorType is Post) {
-            Post.handlePostRequest(
-                decoratorType: decoratorType,
-                methodName: methodName,
-                path: decoratorType.path);
-          }
-        });
-      }
-    });
-    return DartFactory._();
+  factory DartFactory.create(Object module) {
+    return DartFactory(module);
   }
 
   ///listen
-  void listen(int port, {String ip = '127.0.0.1'}) {}
+  void listen(int port, {String ip = '127.0.0.1'}) async {
+    try {
+      print("Starting server...");
+      print("PORT: $port");
+      server = await HttpServer.bind(ip, port);
+      print("Listening at: http://$ip:$port");
+      server?.listen((HttpRequest request) async {
+        RequestHandler.handleRequest(request, module);
+      });
+    } catch (e) {
+      print("Error starting the server:$e");
+    }
+  }
 }
