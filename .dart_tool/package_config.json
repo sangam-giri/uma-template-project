@@ -56,6 +56,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "dart_modules",
+      "rootUri": "../dart_modules",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "dio",
       "rootUri": "file:///C:/Users/Sangam%20Giri/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.0",
       "packageUri": "lib/",
@@ -290,7 +296,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-09T03:39:32.232069Z",
+  "generated": "2024-02-09T05:08:35.624723Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }
