@@ -2,13 +2,31 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "collection",
+      "rootUri": "file:///C:/Users/Sangam%20Giri/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.18.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "crypto",
+      "rootUri": "file:///C:/Users/Sangam%20Giri/AppData/Local/Pub/Cache/hosted/pub.dev/crypto-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///C:/Users/Sangam%20Giri/AppData/Local/Pub/Cache/hosted/pub.dev/typed_data-1.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "dart_modules",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-09T04:44:39.017870Z",
+  "generated": "2024-02-09T13:49:44.985656Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }
