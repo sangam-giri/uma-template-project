@@ -46,4 +46,11 @@ class RequestHandler {
         ..close();
     }
   }
+
+  static invalid(HttpRequest request) {
+    request.response
+      ..statusCode = HttpStatus.notFound
+      ..write('Error: Invalid Configuration !') //Invalid Configuration
+      ..close();
+  }
 }

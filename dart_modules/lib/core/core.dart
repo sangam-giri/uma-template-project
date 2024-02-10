@@ -5,12 +5,12 @@ import 'package:dart_modules/logger/logger.dart';
 HttpServer? server;
 
 class DartFactory {
-  final Object module;
+  final Type module;
 
   DartFactory(this.module);
 
   ///create
-  factory DartFactory.create(Object module) {
+  factory DartFactory.create(Type module) {
     return DartFactory(module);
   }
 

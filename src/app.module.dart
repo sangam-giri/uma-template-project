@@ -1,10 +1,9 @@
 import 'package:dart_modules/common/module.dart';
-import 'app.controller.dart';
 import 'app.service.dart';
 
 @Module(
   imports: [],
-  controllers: [AppController],
+  controllers: [AppService],
   providers: [AppService],
 )
 class AppModule {}
