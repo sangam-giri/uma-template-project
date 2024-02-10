@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:dart_modules/core/request_handler.dart';
+import 'package:dart_modules/core/routes_manager.dart';
 import 'package:dart_modules/logger/logger.dart';
 
 HttpServer? server;
@@ -24,7 +24,7 @@ class DartFactory {
       server = await HttpServer.bind(ip, port);
       logger.info("Listening at: http://$ip:$port");
       server?.listen((HttpRequest request) async {
-        RequestHandler.handleRequest(request, module);
+        RoutesManager.initailize(request, module);
       });
     } catch (e) {
       logger.error(e.toString());

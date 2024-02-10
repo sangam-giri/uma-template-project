@@ -1,5 +1,3 @@
-part of 'decorators.dart';
-
 const GET = 'GET';
 const POST = 'POST';
 const PUT = 'PUT';
