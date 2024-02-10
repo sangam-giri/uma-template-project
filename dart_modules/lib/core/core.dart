@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dart_modules/core/request_handler.dart';
+import 'package:dart_modules/logger/logger.dart';
 
 HttpServer? server;
 
@@ -13,18 +14,20 @@ class DartFactory {
     return DartFactory(module);
   }
 
+  Logger logger = Logger();
+
   ///listen
   void listen(int port, {String ip = '127.0.0.1'}) async {
     try {
-      print("Starting server...");
-      print("PORT: $port");
+      logger.info("Starting server...");
+      logger.info("PORT: $port");
       server = await HttpServer.bind(ip, port);
-      print("Listening at: http://$ip:$port");
+      logger.info("Listening at: http://$ip:$port");
       server?.listen((HttpRequest request) async {
         RequestHandler.handleRequest(request, module);
       });
     } catch (e) {
-      print("Error starting the server:$e");
+      logger.error(e.toString());
     }
   }
 }

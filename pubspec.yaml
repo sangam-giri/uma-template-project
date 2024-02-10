@@ -13,7 +13,6 @@ dependencies:
   # Add your project dependencies here
   dio: ^5.4.0
 
-
 dev_dependencies:
   # Add your development dependencies here
   test: ^1.0.0
