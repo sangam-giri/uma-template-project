@@ -55,7 +55,8 @@ class Logger {
       case LogLevel.debug:
         return ANSIEscapeCode.blue; // Blue
       case LogLevel.info:
-        return ANSIEscapeCode.green; // Green
+        // return ANSIEscapeCode.green; // Green
+        return ANSIEscapeCode.blue; // Blue
       case LogLevel.warning:
         return ANSIEscapeCode.yellow; // Yellow
       case LogLevel.error:
