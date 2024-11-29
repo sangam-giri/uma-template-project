@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dart_modules/constants/constants.dart';
-import 'package:dart_modules/core/all_routes.dart';
+import 'package:dart_modules/core/api_routes.dart';
 import 'package:dart_modules/core/request.dart';
 
 class RequestHandler {

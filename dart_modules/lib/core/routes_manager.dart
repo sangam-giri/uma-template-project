@@ -3,7 +3,7 @@ import 'dart:mirrors';
 import 'package:dart_modules/common/controller.dart';
 import 'package:dart_modules/common/module.dart';
 import 'package:dart_modules/common/routes.dart';
-import 'package:dart_modules/core/all_routes.dart';
+import 'package:dart_modules/core/api_routes.dart';
 import 'package:dart_modules/core/request_handler.dart';
 import 'package:dart_modules/logger/logger.dart';
 
@@ -16,8 +16,27 @@ class RoutesManager {
     // Iterating through annotations
     for (InstanceMirror instanceMirror in metadata) {
       if (instanceMirror.reflectee is Module) {
-        List<Type> controllers =
-            instanceMirror.getField(Symbol('controllers')).reflectee;
+        List<Type> controllers = [];
+
+        List<Type> modules =
+            instanceMirror.getField(Symbol('imports')).reflectee;
+
+        if (modules.isNotEmpty) {
+          for (var module in modules) {
+            ClassMirror classMirror = reflectClass(module);
+            Iterable<InstanceMirror> metadata = classMirror.metadata;
+            for (InstanceMirror instanceMirror in metadata) {
+              if (instanceMirror.reflectee is Module) {
+                controllers.addAll(
+                    instanceMirror.getField(Symbol('controllers')).reflectee);
+              }
+            }
+          }
+        }
+
+        controllers
+            .addAll(instanceMirror.getField(Symbol('controllers')).reflectee);
+
         if (controllers.isNotEmpty) {
           if (getRoutes.isEmpty &&
               postRoutes.isEmpty &&
@@ -30,14 +49,12 @@ class RoutesManager {
               for (InstanceMirror instanceMirror in metadata) {
                 if (instanceMirror.reflectee is Controller) {
                   extractingMethodFromClass(controllers[i]);
-                  RequestHandler.handleRequest(request, module);
                 } else {
                   logger.warning("Make sure you have passed Controller");
-                  // return;
-                  RequestHandler.invalid(request);
                 }
               }
             }
+            RequestHandler.handleRequest(request, module);
           } else {
             RequestHandler.handleRequest(request, module);
           }

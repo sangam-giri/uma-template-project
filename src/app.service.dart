@@ -3,18 +3,22 @@ import 'package:dart_modules/common/injectable.dart';
 @Injectable()
 class AppService {
   String getMethod() {
-    return 'Get Method Triggered';
-  }
-
-  String getMethodWithRoute() {
-    return 'Get Method Triggered with route';
+    return 'Get Method Working';
   }
 
   String postMethod() {
-    return 'Post Method Triggered';
+    return 'Post Method Working';
   }
 
-  String postMethodWithRoute() {
-    return 'Post Method Triggered with route';
+  String putMethod() {
+    return 'Put Method Working';
+  }
+
+  String patchMethod() {
+    return 'Patch Method Working';
+  }
+
+  String deleteMethod() {
+    return 'Delete Method Working';
   }
 }

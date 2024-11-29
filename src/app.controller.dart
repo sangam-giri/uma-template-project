@@ -11,11 +11,6 @@ class AppController {
     return appService.getMethod();
   }
 
-  @Get(path: '/my-get-path')
-  String getWithPathMethod() {
-    return 'This get method has a path';
-  }
-
   @Post()
   String postMethod() {
     return appService.postMethod();
@@ -23,16 +18,16 @@ class AppController {
 
   @Put()
   String putMethod() {
-    return 'PuT Working';
+    return appService.putMethod();
   }
 
   @Patch()
   String patchMethod() {
-    return 'Patch Working';
+    return appService.patchMethod();
   }
 
   @Delete()
   String deleteMethod() {
-    return 'Delete Working';
+    return appService.deleteMethod();
   }
 }

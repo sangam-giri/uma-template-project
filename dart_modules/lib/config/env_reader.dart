@@ -18,6 +18,8 @@ class ConfigModule {
   }
 }
 
+//TODO(Sangam): Validate and Optimize the accessing logic
+///
 // Map<String, String> loadEnv() {
 //   final envFile = File('.env');
 //   final lines = envFile.readAsLinesSync();

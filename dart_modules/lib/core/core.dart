@@ -17,7 +17,7 @@ class DartFactory {
   Logger logger = Logger();
 
   ///listen
-  void listen(int port, {String ip = '127.0.0.1'}) async {
+  void listen(int port, {String ip = '0.0.0.0'}) async {
     try {
       logger.info("Starting server...");
       logger.info("PORT: $port");
